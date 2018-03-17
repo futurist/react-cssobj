@@ -5,7 +5,7 @@ const {execSync} = require('child_process')
 const config = require('../jest-puppeteer.config')
 const host = js => `http://localhost:${config.server.port}?js=${js}`
 const sleep = async sec => new Promise(res=>setTimeout(res, sec*1e3))
-const checkMatchClass = async (page, selector, matcher)=>{
+const checkMatchClass = async (selector, matcher)=>{
   const element = await expect(page).toMatchElement(selector)
   const prop = await element.getProperty('className')
   const value = await prop.jsonValue()
@@ -34,12 +34,12 @@ describe('test1.js', () => {
   it('should render right', async () => {
     await expect(page).not.toMatch('root')
     // await page.content().then(console.log)
-    await checkMatchClass(page, '#root > div', /^\s*app_\w+_/)
-    await checkMatchClass(page, '#root > div > header', '')
-    await checkMatchClass(page, '#root > div > header > h2', /^\s*appTitle_\w+_/)
-    await checkMatchClass(page, '#root > div > header > h2 > span', "")
+    await checkMatchClass('#root > div', /^\s*app_\w+_/)
+    await checkMatchClass('#root > div > header', '')
+    await checkMatchClass('#root > div > header > h2', /^\s*appTitle_\w+_/)
+    await checkMatchClass('#root > div > header > h2 > span', "")
     await expect(page).toClick('#root > div')
-    await checkMatchClass(page, '#root > div > header > h2', /.*appTitle.*\s*abc_\w+_/)
+    await checkMatchClass('#root > div > header > h2', /.*appTitle.*\s*abc_\w+_/)
     await checkMatchStyle('h2', 'font-size', '48px')
     await checkMatchStyle('#root > div', 'background-color', 'rgb(255, 255, 0)')
   })
