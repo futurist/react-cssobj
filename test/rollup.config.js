@@ -4,7 +4,7 @@ const commonjs = require('rollup-plugin-commonjs');
 const resolve = require('rollup-plugin-node-resolve');
 
 const inputOptions = {
-  input: 'specs/test1.js',
+  input: 'src/test1.js',
   plugins:[
     babel({
       "presets":[
@@ -16,17 +16,12 @@ const inputOptions = {
         ],
         "react"
       ],
-      "plugins": [
-        "external-helpers"
-      ],
       babelrc: false
     }),
-    resolve({
-      module: true,
-      jsnext: true,
-      main: true,
+    resolve(),
+    commonjs({
+      namedExports: { '../node_modules/classnames/index.js': ['default' ] }
     }),
-    commonjs(),
   ],
 };
 

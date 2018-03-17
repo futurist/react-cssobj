@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import createCSS from  '../../src'
+import ReactCSS from  '../../src'
 
-const {css, mapClass} = createCSS({
+const {css, mapClass} = ReactCSS({
   '.app': {background: 'red'},
   '.appTitle': {
     '&.abc':{
@@ -21,7 +21,7 @@ class App extends React.Component {
     return mapClass(<div className='app'>
     <header>
       <h2 className={{appTitle:1, abc:this.state.ok}} onClick={e=>{
-        css.set(['.appTitle'], {color: 'white'})
+        css.set(['.app'], {background: 'yellow'})
         this.setState({ok: !this.state.ok})
       }}><span>Bookmark List</span></h2>
     </header>

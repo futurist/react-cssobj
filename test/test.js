@@ -1,29 +1,34 @@
 const fs = require('fs')
 const path = require('path')
+const {execSync} = require('child_process')
 
-const host = 'http://localhost:4444'
-const _f = (file, dir)=>path.join(__dirname, dir||'', file)
-const htmlTemplate = fs.readFileSync(_f('template.html'), 'utf8')
-const getHTML = (...srcArr) => {
-  return htmlTemplate.replace(
-    '{{SCRIPT}}',
-    srcArr.map(src=>'<script async src="'+(host + '/dist/' + src)+'"></script>')
-    .join(''))
-}
+const config = require('../jest-puppeteer.config')
+const host = js => `http://localhost:${config.server.port}?js=${js}`
 const sleep = async sec => new Promise(res=>setTimeout(res, sec*1e3))
-const checkMatchClass = async (page, selector, className)=>{
+const checkMatchClass = async (page, selector, matcher)=>{
   const element = await expect(page).toMatchElement(selector)
   const prop = await element.getProperty('className')
   const value = await prop.jsonValue()
-  expect(value).toMatch(className)
-  return element
+  expect(value).toMatch(matcher)
+  return value
+}
+const checkMatchStyle = async (selector, prop, matcher)=> {
+  const value = await page.evaluate((sel, prop) => {
+    const el = document.querySelector(sel)
+    return getComputedStyle(el).getPropertyValue(prop)
+  }, selector, prop)
+  expect(value).toMatch(matcher)
+  return value
 }
 
-describe('Google', () => {
-  beforeAll(async () => {
-    // await page.goto('about:blank')
-    // console.log(getHTML('test1.js'))
-    await page.setContent(getHTML('test1.js'))
+beforeAll(() => {
+  execSync('npm run build:test')
+}, 30e3)
+
+describe('test1.js', () => {
+  beforeEach(async () => {
+    await page.goto('about:blank')
+    await page.goto(host('test1.js'))
   })
 
   it('should render right', async () => {
@@ -33,13 +38,12 @@ describe('Google', () => {
     await checkMatchClass(page, '#root > div > header', '')
     await checkMatchClass(page, '#root > div > header > h2', /^\s*appTitle_\w+_/)
     await checkMatchClass(page, '#root > div > header > h2 > span', "")
-    await  expect(page).toClick('#root > div')
+    await expect(page).toClick('#root > div')
     await checkMatchClass(page, '#root > div > header > h2', /.*appTitle.*\s*abc_\w+_/)
-    const fontSize = await page.evaluate(() => {
-      const btn = document.querySelector('h2')
-      return getComputedStyle(btn).getPropertyValue('font-size')
-    })
-    expect(fontSize).toBe('48px')  // 3rem
+    await checkMatchStyle('h2', 'font-size', '48px')
+    await checkMatchStyle('#root > div', 'background-color', 'rgb(255, 255, 0)')
   })
+
 })
+
 
