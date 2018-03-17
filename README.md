@@ -1,6 +1,10 @@
 # react-cssobj
 Make React work with [cssobj](https://github.com/cssobj/cssobj), make stylesheet localized, live update, and more.
 
+[![npm](https://img.shields.io/npm/v/react-cssobj.svg "Version")](https://www.npmjs.com/package/react-cssobj)
+[![Build Status](https://travis-ci.org/futurist/react-cssobj.svg?branch=master)](https://travis-ci.org/futurist/react-cssobj)
+
+
 ## Install
 
 ```
