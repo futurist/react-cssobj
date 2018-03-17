@@ -1,3 +1,5 @@
+const {execSync} = require('child_process')
+
 const PuppeteerEnvironment = require('jest-environment-puppeteer')
 class CustomEnvironment extends PuppeteerEnvironment {
   constructor(config) {
@@ -8,7 +10,8 @@ class CustomEnvironment extends PuppeteerEnvironment {
   async setup() {
     await super.setup()
     // Your setup
-    console.log('test start')
+    console.log('***** npm run build:test *****')
+    execSync('npm run build:test')
   }
 
   async teardown() {

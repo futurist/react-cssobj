@@ -1,16 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactCSS from  '../../src'
+import defaultUnit from 'cssobj-plugin-default-unit'
 
 const {css, mapClass} = ReactCSS({
   '.app': {background: 'red'},
   '.appTitle': {
     '&.abc':{
-      fontSize:'48px'  //3rem
+      fontSize: 48
     },
     color: 'blue'
   }
-})
+}, {local: false, plugins:[
+  defaultUnit()
+]})
 
 class App extends React.Component {
   constructor(props, context){

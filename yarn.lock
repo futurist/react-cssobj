@@ -1682,6 +1682,10 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
+cssobj-plugin-default-unit@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/cssobj-plugin-default-unit/-/cssobj-plugin-default-unit-2.3.4.tgz#f312c9413971a8d1d7115e21c7fd9f7582d32c1d"
+
 cssobj@^1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/cssobj/-/cssobj-1.3.3.tgz#60c76c248d3869fb75714375ecbc0b8e27d7c22c"
