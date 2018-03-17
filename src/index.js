@@ -1,6 +1,6 @@
 import cssobj from 'cssobj'
 import classNames from 'classnames'
-import cloneTree from 'react-clone-tree'
+import changeProps from 'react-change-props'
 
 class CreateCSS {
   constructor (obj, config) {
@@ -9,7 +9,7 @@ class CreateCSS {
   }
   mapClass(jsx) {
     const {css} = this
-    return cloneTree(
+    return changeProps(
       jsx,
       el=>{
         const {className} = el.props
@@ -25,5 +25,5 @@ export default function createCSS(obj, config) {
 
 createCSS.cssobj = cssobj
 createCSS.classNames = classNames
-createCSS.cloneTree = cloneTree
+createCSS.changeProps = changeProps
 

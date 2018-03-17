@@ -70,3 +70,19 @@ describe('test2.js: test config', () => {
   })
 
 })
+
+
+
+describe('test3.js: test nested component', () => {
+  beforeEach(async () => {
+    await page.goto('about:blank')
+    await page.goto(host('test3.js'))
+  })
+
+  it('should render right', async () => {
+    await expect(page).not.toMatch('root')
+    // await page.content().then(console.log)
+    await checkMatchClass('#root > div > span', /^\s*foo_\w+_$/)
+  })
+
+})

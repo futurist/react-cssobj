@@ -4934,6 +4934,12 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-change-props@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-change-props/-/react-change-props-1.2.0.tgz#eb77e99b8e377229e61e929d5e30fd8c63481c2a"
+  dependencies:
+    react ">0.14.0"
+
 react-clone-tree@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-clone-tree/-/react-clone-tree-1.0.0.tgz#ffbde121b1713cf5937e11cb58034ad9146f44a0"
