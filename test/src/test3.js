@@ -5,7 +5,7 @@ import ReactCSS from  '../../src'
 const {css, mapClass:L} = ReactCSS({
   '.app': {background: 'red'},
   '.appTitle': {
-    '&.abc':{
+    '&.large':{
       fontSize:'48px'  //3rem
     },
     color: 'blue'
@@ -22,17 +22,12 @@ class Foo extends React.Component{
 }
 
 class App extends React.Component {
-  constructor(props, context){
-    super(props, context)
-    this.state = {}
-  }
   render(){
     return L(<div className='app'>
     <header>
-      <h2 className={{'appTitle':1, 'abc':this.state.ok}} onClick={e=>{
-        css.set(['.app'], {background: 'yellow'})
-        this.setState({ok: !this.state.ok})
-      }}><span>Bookmark List</span></h2>
+      <h2 className={{'appTitle':true, 'large':this.state}} onClick={e=>{
+        this.setState({})
+      }}>Title</h2>
     </header>
     <Foo />
     </div>)

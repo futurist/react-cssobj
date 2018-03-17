@@ -1,6 +1,6 @@
 {
   "name": "react-cssobj",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Use react with cssobj as styled component",
   "main": "src/index.js",
   "repository": "git@github.com:futurist/react-cssobj.git",
