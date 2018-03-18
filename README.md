@@ -36,7 +36,7 @@ export default class App extends React.Component {
       <header className = 'app'>
         <h2 className = {{'appTitle': true, 'large': this.state}}
             onClick = {() => {
-              css.set('.app', {background: 'yellow'})
+              css.set(['.app'], {background: 'yellow'})
               this.setState({})
             }}>
           Title
