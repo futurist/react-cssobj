@@ -7,17 +7,18 @@ const config = {
     path: path.join(__dirname, 'dist'),
     filename: 'browser.js',
     library: 'ReactCSSObj',
-    libraryExport: 'default'
+    libraryExport: 'default',
+    libraryTarget: 'umd'
   },
   mode: process.env.NODE_ENV === 'production' ? 'development' : 'production',
   resolve: {
-    // otherwize const will not transpiled!!
-    mainFields: ['main', 'module']
+    // otherwize const will not transpiled when exclude: /node_modules/
+    // mainFields: ['main', 'module']
   },
   module: {
     rules: [{
       test: /\.js?$/,
-      exclude: /node_modules/,
+      // exclude: /node_modules/,
       loader: 'babel-loader'
     }]
   }
