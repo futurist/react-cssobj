@@ -1,21 +1,23 @@
 {
   "name": "react-cssobj",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Use react with cssobj as styled component",
   "main": "dist/index.js",
   "module": "src/index.js",
+  "browser": "dist/browser.js",
   "repository": "git@github.com:futurist/react-cssobj.git",
   "author": "futurist <jamesyang999@gmail.com>",
   "license": "Apache-2.0",
   "scripts": {
     "test": "jest",
+    "build": "rm -rf dist && mkdir -p dist && babel src/index.js -o dist/index.js && npm run build:browser",
     "build:test": "webpack-cli --config=test/webpack.config.js",
-    "build": "rm -rf dist && mkdir -p dist && babel src/index.js -o dist/index.js"
+    "build:browser": "webpack-cli --config=webpack.config.js"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.0.0",
-    "babel-loader": "^6.0.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",

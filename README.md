@@ -36,7 +36,7 @@ export default class App extends React.Component {
       <header className = 'app'>
         <h2 className = {{'appTitle': true, 'large': this.state}}
             onClick = {() => {
-              css.set('.app', {background: 'yellow'}) // <<<-- Rocks!
+              css.set('.app', {background: 'yellow'})
               this.setState({})
             }}>
           Title
@@ -92,6 +92,20 @@ function( jsObject, cssobjConfig ) -> Instance of HelperClass
 
     2. Then passed into [cssobj][] [result.mapClass](https://github.com/cssobj/cssobj/blob/master/docs/api.md#result-object)
 
+    3. The final value is localized `className` as `string`
+
+
+### Static Methods
+
+`MainEntry` has below methods as shortcuts for related modules:
+
+  - **cssobj**: _[function]_ Same as **require('[cssobj][]')**
+
+  - **classNames**: _[function]_ Same as **require('[classnames](https://github.com/JedWatson/classnames)')**
+
+  - **changeProps**: _[function]_ Same as **require('[react-change-props](https://github.com/futurist/react-change-props)')**
+
+
 
 ## Notes
 
@@ -125,14 +139,14 @@ function Foo() {
 }
 ```
 
-### 2. Map individual class
+### 2. Get localized class names
 
-If you don't want the `helper.mapClass`, or you want use generated className in **DOM**, you can use [cssobj][] method `css.mapClass`:
+If you want get/use localized className some where (like **DOM**), you can use [cssobj][] method `css.mapClass`:
 
 ```jsx
 function Foo() {
   return <p className={css.mapClass('foo')} ref={
-    el => $(el).addClass( css.mapClass('bar') )
+    el => el.onclick = () => $(el).toggleClass( css.mapClass('bar') )
   }>Hello</p>
 }
 
