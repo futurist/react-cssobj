@@ -93,27 +93,52 @@ function( jsObject, cssobjConfig ) -> Instance of HelperClass
     2. Then passed into [cssobj][] [result.mapClass](https://github.com/cssobj/cssobj/blob/master/docs/api.md#result-object)
 
 
-## Example
+## Notes
 
-```js
+### 1. No inject into sub-component
+
+`helper.mapClass` is only one-level transformer, when met a component like `<Foo/>`, it will not dig into it, keep the component clean in it's own `render()`.
+
+```jsx
 
 const helper = ReactCSS({
   '.app': {
-    p: {color: 'red'}
+    'p.foo': {color: 'red'}
   }
 })
 
-function MyComponent() {
-  // Make `.app` class localized
-  return helper.mapClass(<div className="app"><p>Hello</p></div>)
+function Foo() {
+  return <p className="foo">Hello</p>
 }
 
-// Any where, change <p> color and font-size
-helper.css.set(['.app', 'p'], {color: 'blue', fontSize:'1.5rem'})
+function MyComponent() {
+  return helper.mapClass(<div className="app"><Foo/></div>)
+}
 
 ```
 
-[Here is JSBin]()
+Above example, `p` will rendered as is, `p.foo` will not be localized, to work, you should change Foo like below:
 
+```jsx
+function Foo() {
+  return helper.mapClass(<p className="foo">Hello</p>)
+}
+```
 
+### 2. Map individual class
+
+If you don't want the `helper.mapClass`, or you want use generated className in **DOM**, you can use [cssobj][] method `css.mapClass`:
+
+```jsx
+function Foo() {
+  return <p className={css.mapClass('foo')} ref={
+    el => $(el).addClass( css.mapClass('bar') )
+  }>Hello</p>
+}
+
+// any where you want to query a DOM:
+document
+  .querySelector( css.mapSel('.app p.foo') )
+  .removeClass( css.mapClass('bar') )
+```
 

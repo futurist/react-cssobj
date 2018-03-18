@@ -10,11 +10,12 @@
   "scripts": {
     "test": "jest",
     "build:test": "webpack-cli --config=test/webpack.config.js",
-    "build": "rm -rf dist && webpack-cli --config=webpack.config.js",
-    "browser": "uglifyjs dist/index.js -cm -o dist/react-cssobj.min.js"
+    "build": "rm -rf dist && mkdir -p dist && babel src/index.js -o dist/index.js"
   },
   "devDependencies": {
-    "babel-loader": "^7.1.4",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
