@@ -51,8 +51,8 @@ export default class App extends React.Component {
 Render result: (stylesheet be rendered in `<head>`, thank to [cssobj][])
 
 ```html
-<header class=" app_17fzew31_">
-    <h2 class=" appTitle_17fzew31_">Title</h2>
+<header class="app_17fzew31_">
+    <h2 class="appTitle_17fzew31_">Title</h2>
 </header>
 ```
 
@@ -60,8 +60,8 @@ Render result: (stylesheet be rendered in `<head>`, thank to [cssobj][])
 Then, when you clicked on `h2`, the result:
 
 ```html
-<header class=" app_17fzew31_">
-    <h2 class=" appTitle_17fzew31_ large_17fzew31_">Title</h2>
+<header class="app_17fzew31_">
+    <h2 class="appTitle_17fzew31_ large_17fzew31_">Title</h2>
 </header>
 ```
 

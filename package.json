@@ -1,6 +1,6 @@
 {
   "name": "react-cssobj",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Use react with cssobj as styled component",
   "main": "dist/index.js",
   "module": "src/index.js",
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "cssobj": "^1.3.3",
+    "cssobj": "^1.3.4",
     "react": ">0.14.0",
     "react-change-props": "^1.2.0"
   },
