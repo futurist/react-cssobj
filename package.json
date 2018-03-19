@@ -1,7 +1,7 @@
 {
   "name": "react-cssobj",
   "version": "1.2.2",
-  "description": "Use react with cssobj as styled component",
+  "description": "React work with cssobj, make stylesheet localized, runtime updating, and more",
   "main": "dist/index.js",
   "module": "src/index.js",
   "browser": "dist/browser.js",
