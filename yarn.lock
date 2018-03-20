@@ -1737,9 +1737,9 @@ cssobj-plugin-default-unit@^2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/cssobj-plugin-default-unit/-/cssobj-plugin-default-unit-2.3.4.tgz#f312c9413971a8d1d7115e21c7fd9f7582d32c1d"
 
-cssobj@^1.3.4:
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/cssobj/-/cssobj-1.3.4.tgz#a437929de7a04875a4aea696a724a54b9655d662"
+cssobj@^1.3.5:
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/cssobj/-/cssobj-1.3.5.tgz#c6b1750bef15c2d5cdecc21cf39b5961085f922c"
 
 cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   version "0.3.2"
