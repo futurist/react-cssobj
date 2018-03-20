@@ -1,9 +1,11 @@
+const {HEADLESS, SLOWMO} = process.env
 
 module.exports = {
   launch: {
     ignoreHTTPSErrors: true,
     dumpio: true,
-    headless: process.env.HEADLESS !== 'false',
+    slowMo: Number(SLOWMO),
+    headless: HEADLESS != 'false',
   },
   server: {
     command: 'node test/server',
