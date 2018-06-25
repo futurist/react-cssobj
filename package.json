@@ -1,6 +1,6 @@
 {
   "name": "react-cssobj",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "React work with cssobj, make stylesheet localized, runtime updating, and more",
   "main": "dist/index.js",
   "module": "src/index.js",
@@ -8,6 +8,15 @@
   "repository": "git@github.com:futurist/react-cssobj.git",
   "author": "futurist <jamesyang999@gmail.com>",
   "license": "Apache-2.0",
+  "keywords": [
+    "react",
+    "css",
+    "inline",
+    "style",
+    "stylesheet",
+    "css-in-js",
+    "component"
+  ],
   "scripts": {
     "test": "jest",
     "build": "rm -rf dist && mkdir -p dist && babel src/index.js -o dist/index.js && npm run build:browser",
