@@ -16,6 +16,10 @@
     "css-in-js",
     "component"
   ],
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "test": "jest",
     "build": "rm -rf dist && mkdir -p dist && babel src/index.js -o dist/index.js && npm run build:browser",
