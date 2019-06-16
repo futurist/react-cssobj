@@ -15,6 +15,14 @@ const config = {
     // otherwize const will not transpiled when exclude: /node_modules/
     // mainFields: ['main', 'module']
   },
+  externals: {
+    react : {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react',
+      root: 'React' // indicates global variable
+    }
+  },
   module: {
     rules: [{
       test: /\.js?$/,
