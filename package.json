@@ -1,6 +1,6 @@
 {
   "name": "react-cssobj",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "React work with cssobj, make stylesheet localized, runtime updating, and more",
   "main": "dist/index.js",
   "unpkg": "dist/browser.js",
